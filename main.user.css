@@ -2,7 +2,7 @@
 @name           MainPage Fix
 @namespace      https://github.com/Enthub-it/CSS-MainPage-Fix
 @homepageURL    https://github.com/Enthub-it/CSS-MainPage-Fix
-@version        1.0.1
+@version        1.0.2
 @description    Фикс текста фидов
 @author         TentacleTenticals
 @updateURL      https://github.com/Enthub-it/CSS-MainPage-Fix/raw/main/main.user.css
@@ -12,19 +12,34 @@
   /* PAGE FIX */
   
   main.pb-16 { /* Главный контейнер */
+    
     >:nth-child(1) { /* Главный контейнер с панелями left-center-right */
+      display: flex;
       
-      .w-full { /* ЦЕНТРАЛЬНАЯ панель */
+      >aside[class*='md:block'] { /* ЛЕВАЯ панель */
+        display: flex;
+        min-width: 0;
+        min-height: 0;
         max-width: unset;
+        width: 25vw;
       }
       
-      aside[class*='lg:block'] { /* ПРАВАЯ панель */
+      >.w-full { /* ЦЕНТРАЛЬНАЯ панель */
+/*         width: 70vw; */
+/*         display: flex; */
+        min-width: 0;
+        min-height: 0;
+        max-width: unset;
+/*         width: 30vw; */
+      }
+      
+      >aside[class*='lg:block'] { /* ПРАВАЯ панель */
         display: flex;
         flex-direction: column;
         gap: 10px 0;
         position: sticky;
         top: 0;
-        width: 27vw;
+        width: 40vw;
         height: 100vh;
         
         section.rounded-lg { /* Панель тегов */
@@ -76,7 +91,8 @@
     }
   }
   
-  div[wire\:snapshot*='story'] { /* Фид */
+  div[wire\:snapshot*='story'] {
 /*     width: 50%; */
   }
+}
 }
